@@ -27,3 +27,19 @@
 
 `git branch --set-upstream-to=origin/main main`
 
+```
+git config --global credential.helper wincred
+git config --global credential.helper store
+git config --global init.defaultBranch main
+git config --global alias.lg "log --oneline --graph --all"
+git config --global --list
+```
+
+```
+# 副本 A：用 HTTPS
+git clone https://github.com/acktomas/repo.git repo-https
+
+# 副本 B：用 SSH
+git clone git@github.com:acktomas/repo.git repo-ssh
+```
+
