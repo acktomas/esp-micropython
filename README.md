@@ -1,6 +1,6 @@
 # Git
 
-### **必须掌握的6个命令（按使用顺序）**
+## **必须掌握的6个命令（按使用顺序）**
 
 | 命令                           | 作用                             | 使用场景                                             |
 | ------------------------------ | -------------------------------- | ---------------------------------------------------- |
@@ -26,7 +26,7 @@
 > **“把当前所在的分支，强制改名为 `main`。”**
 
 `git branch --set-upstream-to=origin/main main`
-
+## git config 推荐设置
 ```
 git config --global credential.helper wincred
 git config --global credential.helper store
@@ -42,4 +42,9 @@ git clone https://github.com/acktomas/repo.git repo-https
 # 副本 B：用 SSH
 git clone git@github.com:acktomas/repo.git repo-ssh
 ```
-
+## 📌 ：你的 SSH 行动清单
+✅ 生成密钥：ssh-keygen -t ed25519 -C "邮箱"
+✅ 复制公钥：Get-Content ~/.ssh/id_ed25519.pub | Set-Clipboard
+✅ 粘贴到 GitHub → Settings → SSH keys
+✅ 测试：ssh -T git@github.com
+✅ 克隆时用 git@github.com:... 地址
