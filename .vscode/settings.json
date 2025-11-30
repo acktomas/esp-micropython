@@ -1,0 +1,46 @@
+{
+    "python.languageServer": "Pylance",
+
+    // 配置Python解释器（可选，但推荐）
+    "python.defaultInterpreterPath": "C:\\Users\\MyPC\\AppData\\Local\\Programs\\Python\\Python314\\python.exe", // 替换为你的Python路径
+    // 配置MicroPython stubs路径，实现代码补全
+    "python.analysis.extraPaths": [
+        "./stubs" // 指向存放micropython-stubs的文件夹
+    ],
+    "python.analysis.typeCheckingMode": "basic",
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/*.pyc": true
+    },
+    // 可选：禁用某些类型检查，因为MicroPython的API与标准Python不同
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportMissingImports": "none",
+        "reportMissingModuleSource": "none"
+    },
+    // 配置MicroPython-Preview扩展的串口连接
+    "micropython.port": "COM5", // 你的ESP32实际占用的串口，在设备管理器中查看
+    "micropython.baudrate": 115200,
+    // 配置串口监视器插件（如果使用ms-vscode.vscode-serial-port）
+    "serialport.ports": [
+        {
+            "path": "COM5",
+            "baudRate": 115200,
+            "dataBits": 8,
+            "stopBits": 1,
+            "parity": "none"
+        }
+    ],
+    "serialport.autoOpen": false, // 不自动打开，手动连接
+    // 其他推荐设置
+    "files.associations": {
+        "*.py": "python"
+    },
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "never" // 完全禁用imports整理
+    },
+    "[python]": {
+        "editor.formatOnSave": true, // 仅为Python文件启用格式化
+        "editor.defaultFormatter": "ms-python.python"
+    }
+}

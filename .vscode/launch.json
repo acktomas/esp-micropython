@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "MicroPython: Serial Monitor",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "-m",
+                "serial.tools.miniterm",
+                "COM5", // 替换为你的串口
+                "115200",
+                "--exit-char",
+                "3" // Ctrl+C退出
+            ]
+        }
+    ]
+}
