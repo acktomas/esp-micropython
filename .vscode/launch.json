@@ -10,10 +10,10 @@
             "args": [
                 "-m",
                 "serial.tools.miniterm",
-                "COM5", // 替换为你的串口
+                "COM5",
                 "115200",
                 "--exit-char",
-                "3" // Ctrl+C退出
+                "3"
             ]
         }
     ]

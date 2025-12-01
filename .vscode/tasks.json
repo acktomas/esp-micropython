@@ -1,7 +1,6 @@
 {
     "version": "2.0.0",
     "tasks": [
-        // 连接管理任务
         {
             "label": "mpremote: Connect and Show Info",
             "type": "shell",
@@ -56,8 +55,6 @@
                 "panel": "shared"
             }
         },
-
-        // 文件操作任务（原有）
         {
             "label": "mpremote: Upload Current File",
             "type": "shell",
@@ -82,8 +79,18 @@
                 "panel": "shared"
             }
         },
-
-        // REPL 任务
+        {
+            "label": "mpremote: Soft Reset",
+            "type": "shell",
+            "command": "mpremote",
+            "args": ["reset"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
         {
             "label": "mpremote: Open REPL",
             "type": "shell",
@@ -96,8 +103,6 @@
                 "panel": "new"
             }
         },
-
-        // 复合工作流：完整的开发周期
         {
             "label": "mpremote: Complete Development Cycle",
             "dependsOrder": "sequence",
