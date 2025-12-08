@@ -1,8 +1,9 @@
 {
-    "python.languageServer": "Pylance",
+    "python.languageServer": "Default",
     "python.defaultInterpreterPath": "python",
     "python.analysis.extraPaths": [
-        "./stubs"
+        "./stubs",
+        "~/.micropico-stubs/included"
     ],
     "python.analysis.typeCheckingMode": "basic",
     "files.exclude": {
@@ -13,18 +14,6 @@
         "reportMissingImports": "none",
         "reportMissingModuleSource": "none"
     },
-    "micropython.port": "COM5",
-    "micropython.baudrate": 115200,
-    "serialport.ports": [
-        {
-            "path": "COM5",
-            "baudRate": 115200,
-            "dataBits": 8,
-            "stopBits": 1,
-            "parity": "none"
-        }
-    ],
-    "serialport.autoOpen": false,
     "files.associations": {
         "*.py": "python"
     },
@@ -35,5 +24,9 @@
     "[python]": {
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "ms-python.python"
-    }
+    },
+    "python.terminal.activateEnvironment": false,
+    "python.analysis.typeshedPaths": [
+        "~/.micropico-stubs/included"
+    ]
 }
