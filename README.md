@@ -27,6 +27,16 @@
 
 `git branch --set-upstream-to=origin/main main`
 ## git config 推荐设置
+
+
+
+```
+git config --global user.name "YourRealName"
+git config --global user.email "your_email@example.com"  # GitHub 建议用 noreply 邮箱
+```
+
+
+
 ```
 git config --global credential.helper wincred
 git config --global credential.helper store
@@ -42,9 +52,73 @@ git clone https://github.com/acktomas/repo.git repo-https
 # 副本 B：用 SSH
 git clone git@github.com:acktomas/repo.git repo-ssh
 ```
-## 📌 ：你的 SSH 行动清单
-✅ 生成密钥：ssh-keygen -t ed25519 -C "邮箱"
-✅ 复制公钥：Get-Content ~/.ssh/id_ed25519.pub | Set-Clipboard
-✅ 粘贴到 GitHub → Settings → SSH keys
-✅ 测试：ssh -T git@github.com
-✅ 克隆时用 git@github.com:... 地址
+## 📌 ： SSH 行动清单
+✅ 生成密钥：`ssh-keygen -t ed25519 -C "邮箱"`
+✅ 复制公钥：
+
+| 环境                   | 复制命令                                                     |
+| ---------------------- | ------------------------------------------------------------ |
+| **Git Bash (Windows)** | `cat ~/.ssh/id_ed25519.pub | clip`                           |
+| **PowerShell**         | `Get-Content ~/.ssh/id_ed25519.pub | Set-Clipboard`          |
+| **Linux/macOS 终端**   | `xclip -sel c < ~/.ssh/id_ed25519.pub`（需安装 xclip）或手动复制 |
+
+
+
+✅ 粘贴到` GitHub → Settings → SSH keys`
+✅ 测试：`ssh -T git@github.com`
+✅ 克隆时用 `git@github.com:...`
+## Git pull
+
+## 📌 最佳实践组合
+
+| 场景                         | 推荐方案                                                     |
+| ---------------------------- | ------------------------------------------------------------ |
+| **拉取自己的项目**           | ✅ 从 **Gitee** `git pull gitee main`（最快最稳）             |
+| **偶尔需要 GitHub 最新提交** | ✅ 网络好时手动 `git pull origin main`                        |
+| **长期跟踪活跃开源项目**     | ✅ 在 Gitee 上 Fork 该项目 → 设置自动同步（Gitee 支持定时从 GitHub 拉取） |
+
+> 💡 Gitee 自动同步设置路径：
+>  仓库 →「管理」→「镜像仓库管理」→ 添加 GitHub 地址 → 设置每天同步
+
+## Git remote
+
+```
+# 查看当前 remote（应该只有 origin → GitHub）
+git remote -v
+
+# 添加 Gitee 作为新 remote，命名为 "gitee"
+git remote add gitee git@gitee.com:你的用户名/esp32-micropython-starter.git
+
+# 删除之前的 gitee（可选）
+git remote remove gitee
+
+# 创建新 remote "all"，包含两个推送地址
+git remote add all git@github.com:你的用户名/esp32-micropython-starter.git
+git remote set-url --add --push all git@github.com:你的用户名/esp32-micropython-starter.git
+git remote set-url --add --push all git@gitee.com:你的用户名/esp32-micropython-starter.git
+
+# 现在只需：
+git push all main
+```
+
+## 创建 `.gitignore`
+
+在项目根目录新建 `.gitignore`，内容如下：
+
+
+```gitignore
+# VS Code
+.vscode/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Serial logs
+*.log
+
+# OS files
+Thumbs.db
+.DS_Store
+```
+
