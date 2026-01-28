@@ -87,15 +87,17 @@ git clone git@github.com:acktomas/repo.git repo-ssh
 git remote -v
 
 # 添加 Gitee 作为新 remote，命名为 "gitee"
-git remote add gitee git@gitee.com:你的用户名/esp32-micropython-starter.git
+git remote add gitee git@github.com:acktomas/esp-micropython.git
 
 # 删除之前的 gitee（可选）
 git remote remove gitee
 
 # 创建新 remote "all"，包含两个推送地址
-git remote add all git@github.com:你的用户名/esp32-micropython-starter.git
-git remote set-url --add --push all git@github.com:你的用户名/esp32-micropython-starter.git
-git remote set-url --add --push all git@gitee.com:你的用户名/esp32-micropython-starter.git
+git remote add all git@github.com:acktomas/esp-micropython.git
+
+$ git remote set-url --add --push all git@github.com:acktomas/esp-micropython.git
+$ git remote set-url --add --push all git@gitee.com:acktomas/esp-micropython.git
+
 
 # 现在只需：
 git push all main
@@ -122,3 +124,26 @@ Thumbs.db
 .DS_Store
 ```
 
+###  create a new repository on the command line
+
+
+
+```
+echo "# wechat_app" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/acktomas/wechat_app.git
+git push -u origin main
+```
+
+### …or push an existing repository from the command line
+
+
+
+```
+git remote add origin https://github.com/acktomas/wechat_app.git
+git branch -M main
+git push -u origin main
+```
