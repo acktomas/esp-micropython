@@ -134,8 +134,17 @@ git init
 git add README.md
 git commit -m "first commit"
 git branch -M main
-git remote add origin https://github.com/acktomas/wechat_app.git
-git push -u origin main
+
+git remote add all git@github.com:acktomas/wechat_app.git
+
+git remote set-url --add --push all git@github.com:acktomas/wechat_app.git
+git remote set-url --add --push all git@gitee.com:acktomas/wechat_app.git
+
+git push -u all main
+
+# 更新 all 这个默认远程仓库的地址
+$ git remote set-url all git@gitee.com:acktomas/wechat_app.git
+
 ```
 
 ### …or push an existing repository from the command line
